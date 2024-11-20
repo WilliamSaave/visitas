@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../css/login.css"> <!-- Enlace a tu archivo CSS -->
+</head>
+
+<body>
+<div class="login-box"> <!-- Aplicación de la clase login-box -->
+    <img src="Imagenes/logoSena1.png" alt="Logo" class="logoSena"> <!-- Clase logoSena para la imagen del logo -->
+    <h2>Registro de Usuario</h2>
+    <form method="POST" action="registro.php" id="form-registro">
+        <div class="user-box"> <!-- Aplicación de la clase user-box -->
+            <input type="text" id="documento" name="documento" required>
+            <label for="documento">Documento:</label>
+        </div>
+        <div class="user-box">
+            <select id="tip_documento" name="tip_documento" required>
+                <option value="CC">CC</option>
+                <option value="NIT">NIT</option>
+                <option value="Pasaporte">Pasaporte</option>
+            </select>
+            <label for="tip_documento">Tipo de Documento:</label>
+        </div>
+        <div class="user-box">
+            <input type="email" id="correo" name="correo" required>
+            <label for="correo">Correo:</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="nombre">Nombre:</label>
+        </div>
+        <div class="user-box">
+            <input type="password" id="contraseña" name="contraseña" required>
+            <label for="contraseña">Contraseña:</label>
+        </div>
+        <div class="user-box">
+            <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" required>
+            <label for="confirmar_contraseña">Confirmar Contraseña:</label>
+        </div>
+        <button type="submit" class="submit-btn">Registrarse
+            <span></span><span></span><span></span><span></span> <!-- Aplicación del estilo animado -->
+        </button>
+        <button class="back-button" onclick="window.location.href='index.html'">Ya Poseo una cuenta</button>
+    </form>
+    <div class="message" id="message"></div>
+</div>
+</body>
+</html>

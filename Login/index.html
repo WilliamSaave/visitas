@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div class="login-box">
+        <img src="../Imagenes/logoSena1.png" alt="Logo" class="logoSena">
+        <h2>Bienvenido al Sistema de Visitas</h2>
+    
+     
+        <form method="post" action="validar_clave.php" id="form-ingreso">
+            <div class="user-box">
+                <input type="text" name="documento" id="documento" required>
+                <label for="documento">Número de Documento</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="clave" id="clave" required>
+                <label for="clave">Clave</label>
+            </div>
+            <button type="submit" id="ingresar">
+                Ingresar
+                <span></span><span></span><span></span><span></span>
+            </button>
+        </form>
+         <div id="mensaje-error" class="mensaje-error"></div>
+
+
+        <a href="recuperar_contraseña.html" class="olvido">¿Olvidó su contraseña?</a>
+        <a href="registro.html" class="olvido">Regístrese</a>
+    </div>
+    
+
+<script>
+  window.addEventListener('load', () => {
+    const documentoInput = document.getElementById('documento');
+    const claveInput = document.getElementById('clave');
+    const ingresarButton = document.getElementById('ingresar');
+    const form = document.getElementById('form-ingreso');
+    const mensajeError = document.getElementById('mensaje-error'); // Contenedor para los mensajes de error
+
+    ingresarButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        validaIngreso();
+    });
+
+    const validaIngreso = () => {
+        const documentoValor = documentoInput.value.trim();
+        const claveValor = claveInput.value.trim();
+
+        if (documentoValor !== "" && claveValor !== "") {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'validar_clave.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        validaOk(documentoInput);
+                        validaOk(claveInput);
+                        window.location.href = response.redirect;
+                    } else {
+                        mensajeError.innerText = response.message; // Mostrar mensaje de error
+                        mensajeError.style.color = 'red'; // Dar estilo al mensaje de error
+                        validaFalla(documentoInput, response.message);
+                        validaFalla(claveInput, response.message);
+                    }
+                }
+            };
+            xhr.send('documento=' + documentoValor + '&clave=' + claveValor);
+        } else {
+            mensajeError.innerText = 'Ingrese su número de documento y clave';
+            mensajeError.style.color = 'red';
+            validaFalla(documentoInput, 'Ingrese su número de documento');
+            validaFalla(claveInput, 'Ingrese su clave');
+        }
+    }
+
+    const validaFalla = (input, msje) => {
+        const formControl = input.parentElement;
+        const aviso = formControl.querySelector('p');
+        aviso.innerText = msje;
+        formControl.className = 'form-control falla';
+    }
+
+    const validaOk = (input) => {
+        const formControl = input.parentElement;
+        formControl.className = 'form-control ok';
+    }
+});
+
+</script>
+
+</body>
+</html>

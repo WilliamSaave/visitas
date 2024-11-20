@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperar Clave</title>
+    <link rel="stylesheet" href="../css/login.css"> <!-- Enlace al CSS -->
+</head>
+<body>
+    <div class="login-box"> <!-- Ajuste a la clase login-box -->
+        <img src="../Imagenes/logoSena1.png" alt="Logo" class="logoSena"> <!-- Clase logoSena ajustada -->
+        <h2>Recuperar Clave</h2>
+        <p>Escriba su correo SENA asociado para enviar su contraseña</p>
+        <form id="forgot-form">
+            <div class="user-box">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Correo electrónico:</label>
+            </div>
+            <button type="button" onclick="sendEmail()">Enviar
+                <span></span><span></span><span></span><span></span>
+            </button>
+        </form>
+        <div class="message" id="message"></div>
+        <button class="back-button" onclick="window.location.href='index.html'">Volver</button>
+        <div class="contact-info">
+            <p>Si tiene algún problema, escriba a este correo <a href="mailto:sena@problemas.com">sena@problemas.com</a></p>
+        </div>
+    </div>
+
+    <script>
+        function sendEmail() {
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message");
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "send_password.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+
+                        if (response.success) {
+                            message.className = "message success";
+                        } else {
+                            message.className = "message error";
+                        }
+                        message.innerText = response.message;
+                        message.style.display = "block";
+                    }
+                }
+            };
+
+            xhr.send("email=" + encodeURIComponent(email));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* Estilo del body */
+.sidebar-container body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #f1f6ef; /* Color de fondo */
+}
+
+
+/* Sidebar */
+.sidebar-container .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #F9FBF9;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 15px 15px 0;
+    padding-top: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     /* Centrar contenido */
+}
+
+/* Logo en la parte superior de la sidebar */
+.sidebar-container .logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-container .logo img {
+    width: 90px;
+    cursor: pointer;
+}
+
+/* Estilo de los botones del menú */
+.sidebar-container .menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinear elementos dentro del botón a la izquierda */
+    padding: 15px 20px; /* Padding para separación del texto e ícono del borde */
+    text-decoration: none;
+    color: #4a4a4a; /* Texto gris oscuro */
+    background-color: #F9FBF9; /* Coincide con el color de fondo */
+    border: none;
+    font-size: 1vw;
+    font-weight: 600;
+    border-radius: 20px; /* Bordes redondeados */
+    width: 90%; /* Hacer los botones más largos */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 15px; /* Separación entre botones */
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+.sidebar-container .menu-btn img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    filter: brightness(0.2); /* Íconos gris oscuro */
+}
+
+.sidebar-container .menu-btn:hover, .sidebar-container .menu-btn.active {
+    background-color: #39A900;
+    color: white;
+}
+
+.sidebar-container .menu-btn:hover img,.sidebar-container .menu-btn.active img {
+    filter: brightness(0) invert(1); /* Íconos blancos al activar o hacer hover */
+}
+
+/* Submenú */
+.sidebar-container .submenu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear submenús a la izquierda */
+    padding-left: 20px;
+    width: 100%;
+}
+
+.sidebar-container .submenu a {
+    padding: 10px 20px;
+    color: #4a4a4a; /* Texto gris oscuro */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 0.9vw;
+    background-color: #f1f6ef; /* Coincide con el color de fondo */
+    border-radius: 20px; /* Bordes redondeados */
+    width: 80%;
+    margin-bottom: 10px; /* Separación entre submenús */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+.sidebar-container .submenu a:hover {
+    background-color: #39A900;
+    color: white;
+}
+
+.sidebar-container .submenu a img {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    filter: brightness(0.2); /* Íconos gris oscuro */
+}
+
+/* Submenú visible cuando el botón principal está abierto */
+.sidebar-container .menu-btn.open ~ .submenu {
+    display: flex;
+}
+
+/* Limitar submenús abiertos */
+.sidebar-container .menu-btn.open.limited ~ .submenu {
+    display: none;
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    .sidebar-container .sidebar {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .sidebar-container .menu-btn {
+        font-size: 4vw;
+        width: 90%;
+    }
+
+    .sidebar-container .submenu a {
+        font-size: 3.5vw;
+        width: 90%;
+    }
+}

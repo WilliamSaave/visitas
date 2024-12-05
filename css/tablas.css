@@ -1,0 +1,427 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;/* para mover la pagina as la derecha y no se sobre ponga a lo que necesito */
+
+}
+
+/* Main content container */
+.container {
+    padding: 20px;
+    width: 60%; /* Ocupar todo el ancho disponible */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin: 10; /* Eliminar márgenes laterales */
+    padding: 30px;
+    box-sizing: border-box;
+    flex-grow: 1; /* Permitir que el contenedor crezca para ocupar todo el espacio vertical */
+  
+}
+
+
+/* Título de la página */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Buscador */
+#busqueda {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.Buscar-button button {
+    width: 100px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para la barra de búsqueda */
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+/* Estilos para la tabla */
+table {
+    width:95%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #333;
+    color: white;
+}
+
+thead th {
+    padding: 15px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para el formulario de edición */
+#editarUsuario {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+}
+
+#editarUsuario h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+#editarUsuario form {
+    display: flex;
+    flex-direction: column;
+}
+
+#editarUsuario label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#editarUsuario input,
+#editarUsuario select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#editarUsuario button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#editarUsuario button:hover {
+    background-color: #0056b3;
+}
+
+#editarUsuario button[type="button"] {
+    background-color: #dc3545;
+}
+
+#editarUsuario button[type="button"]:hover {
+    background-color: #c82333;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.close {
+    float: right;
+    font-size: 28px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ff0000;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+strong {
+    color: #007bff; /* Color para los títulos */
+}
+
+
+/* Estilos para el formulario de edición */
+#editarEmpresa {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+}
+
+#editarEmpresa h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+#editarEmpresa form {
+    display: flex;
+    flex-direction: column;
+}
+
+#editarEmpresa label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#editarEmpresa input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#editarEmpresa button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#editarEmpresa button:hover {
+    background-color: #45a049;
+}
+
+#editarEmpresa button[type="button"] {
+    background-color: #dc3545;
+}
+
+#editarEmpresa button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+#modalEditarInstructor {
+    display: none; /* Oculto por defecto */
+    background-color: transparent; /* Sin fondo */
+    padding: 20px;
+    border-radius: 5px;
+    position: fixed;   
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+#editarInstructor {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+}
+
+#editarInstructor h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+#editarInstructor form {
+    display: flex;
+    flex-direction: column;
+}
+
+#editarInstructor label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#editarInstructor input,
+#editarInstructor select,
+#editarInstructor textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#editarInstructor button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#editarInstructor button:hover {
+    background-color: #0056b3;
+}
+
+#editarInstructor button[type="button"] {
+    background-color: #dc3545;
+}
+
+#editarInstructor button[type="button"]:hover {
+    background-color: #c82333;
+}
+#editarAprendiz {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+}
+
+#editarAprendiz h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+#editarAprendiz form {
+    display: flex;
+    flex-direction: column;
+}
+
+#editarAprendiz label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#editarAprendiz input,
+#editarAprendiz select,
+#editarAprendiz textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#editarAprendiz button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#editarAprendiz button:hover {
+    background-color: #0056b3;
+}
+
+#editarAprendiz button[type="button"] {
+    background-color: #dc3545;
+}
+
+#editarAprendiz button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+

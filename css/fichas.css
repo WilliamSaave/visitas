@@ -1,0 +1,111 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #39A900;
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Disponer las cajas en paralelo (horizontalmente) */
+    align-items: center; /* Centrar verticalmente las cajas en el contenedor */
+    justify-content: center; /* Centrar horizontalmente en el contenedor */
+    height: 100vh; /* Usar toda la altura de la ventana */
+    gap: 20px; /* Espacio entre las cajas */
+}
+
+.login-box {
+    width: 400px;
+    padding: 40px;
+    background: #F1F6EF;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    color: #000;
+    border-radius: 10px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #000;
+    text-align: center;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input,
+.login-box .user-box select {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label,
+.login-box .user-box select:focus ~ label,
+.login-box .user-box select:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #39A900;
+    font-size: 12px;
+}
+
+.login-box form button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #39A900;
+    font-size: 16px;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    margin-top: 20px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.login-box button:hover {
+    background: #39A900;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #39A900,
+                0 0 25px #39A900,
+                0 0 50px #39A900,
+                0 0 100px #39A900;
+}
+
+/* Estilos adicionales para el select */
+.login-box .user-box select {
+    padding: 10px; /* Para el select */
+    border: 1px solid #39A900; /* Borde del select */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #F1F6EF; /* Fondo del select */
+}
+
+.login-box .user-box select:focus {
+    border-color: #39A900; /* Cambia el borde cuando está enfocado */
+    background-color: #E1F4D3; /* Color de fondo al hacer clic */
+}
